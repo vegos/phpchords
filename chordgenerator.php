@@ -34,9 +34,9 @@ function chordgenerator($iChord)
            switch ($tab[$y])
            {
              case "-1":
-               $output[$x][$y] = "x";
+               $output[$x][$y] = "X";
              case "x":
-               $output[$x][$y] = "x";
+               $output[$x][$y] = "X";
                break;
              case "0":
                $output[$x][$y] = "○";
@@ -149,7 +149,7 @@ function chordgenerator($iChord)
        $tmpout .= "&nbsp;".$output[0][$x];
      }
      $tmpout .= "<BR>";
-     $tmpout .= "┌─┬─┬─┬─┬─┬─┐<BR>";
+     $tmpout .= "╒═╤═╤═╤═╤═╤═╕<BR>";
      for ($x=1; $x<=$max; $x++)
      {
        $tmpout .= "├";
