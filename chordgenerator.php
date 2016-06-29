@@ -25,93 +25,112 @@ function chordgenerator($iChord)
      $max = max(intval($string6),intval($string5),intval($string4),intval($string3),intval($string2),intval($string1));     
      $tab = array($string6,$string5,$string4,$string3,$string2,$string1);
  
-     for ($x=0; $x<$max; $x++)
+     for ($x=0; $x<=$max; $x++)
      {
        for ($y=0; $y<6; $y++)
        {
-          switch($tab[$y])
-          {
+         if ($x==0)
+         {
+           switch ($tab[$y])
+           {
+             case "-1":
+               $output[$x][$y] = "x";
+             case "x":
+               $output[$x][$y] = "x";
+               break;
+             case "0":
+               $output[$x][$y] = "○";
+               break;
+             default:
+               $output[$x][$y] = " ";
+            }
+         }
+         else
+         {
+           switch($tab[$y])
+           {
             case "1":
               if ($x == 0)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "2":
               if ($x == 1)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "3":
               if ($x == 2)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "4":
               if ($x == 3)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "5":
               if ($x == 4)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "6":
               if ($x == 5)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "7":
               if ($x == 6)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "8":
               if ($x == 7)
-                $output[$x][$y]="O";
+               $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "9":
               if ($x == 8)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "10":
               if ($x == 9)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "11":
               if ($x == 10)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "12":
               if ($x == 11)
-                $output[$x][$y]="O";
+                $output[$x][$y]="●";
               else
-                $output[$x][$y]="-";
+                $output[$x][$y]="─";
               break;
             case "-1":
-              $output[$x][$y]="x";
+              $output[$x][$y]="─";
               break;
             case "x":
-              $output[$x][$y]="x";
+              $output[$x][$y]="─";
               break;
             default:
-              $output[$x][$y]="-";
+              $output[$x][$y]="─";
           }
+        }
        }
      }
      $tmparr = array(0,0,0,0,0,0);
@@ -125,17 +144,30 @@ function chordgenerator($iChord)
 //     }
      $tmpout = "";
      $tmpout = "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
-     for ($x=0; $x<$max; $x++)
+     for ($x=0; $x<6; $x++)
      {
-       $tmpout .= "+-+-+-+-+-+-+<BR>";
-       $tmpout .= "|";
+       $tmpout .= "&nbsp;".$output[0][$x];
+     }
+     $tmpout .= "<BR>";
+     $tmpout .= "┌─┬─┬─┬─┬─┬─┐<BR>";
+     for ($x=1; $x<=$max; $x++)
+     {
+       $tmpout .= "├";
        for ($y=0; $y<6; $y++)
        {
-         $tmpout .= $output[$x][$y]."|";
+         if ($y<5)
+         {
+           $tmpout .= $output[$x][$y]."┼";
+         }
+         else
+         {
+           $tmpout .= $output[$x][$y]."┤";
+         }
        }
        $tmpout .= "<BR>";
      }
-     $tmpout .= "+-+-+-+-+-+-+<BR>";     
+//     ┌─┬─┐├─┤┬┴┘└
+     $tmpout .= "└─┴─┴─┴─┴─┴─┘<BR>";     
      mysqli_close($db);   
      return $tmpout;
   }
