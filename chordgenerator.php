@@ -42,7 +42,7 @@ function chordgenerator($iChord)
                $output[$x][$y] = "○";
                break;
              default:
-               $output[$x][$y] = " ";
+               $output[$x][$y] = "&nbsp;";
             }
          }
          else
@@ -50,73 +50,73 @@ function chordgenerator($iChord)
            switch($tab[$y])
            {
             case "1":
-              if ($x == 0)
-                $output[$x][$y]="●";
-              else
-                $output[$x][$y]="─";
-              break;
-            case "2":
               if ($x == 1)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "3":
+            case "2":
               if ($x == 2)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "4":
+            case "3":
               if ($x == 3)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "5":
+            case "4":
               if ($x == 4)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "6":
+            case "5":
               if ($x == 5)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "7":
+            case "6":
               if ($x == 6)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "8":
+            case "7":
               if ($x == 7)
+                $output[$x][$y]="●";
+              else
+                $output[$x][$y]="─";
+              break;
+            case "8":
+              if ($x == 8)
                $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
             case "9":
-              if ($x == 8)
-                $output[$x][$y]="●";
-              else
-                $output[$x][$y]="─";
-              break;
-            case "10":
               if ($x == 9)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "11":
+            case "10":
               if ($x == 10)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
               break;
-            case "12":
+            case "11":
               if ($x == 11)
+                $output[$x][$y]="●";
+              else
+                $output[$x][$y]="─";
+              break;
+            case "12":
+              if ($x == 12)
                 $output[$x][$y]="●";
               else
                 $output[$x][$y]="─";
@@ -134,14 +134,6 @@ function chordgenerator($iChord)
        }
      }
      $tmparr = array(0,0,0,0,0,0);
-//     for ($i=5; $i>0; $i--)
-//     for ($i=$max; $i>0; $i--)
-//     {     
-//       if ((implode((array)$output[$i])) == (implode((array)$output[$i-1])))
-//       {
-//         unset($output[$i]);
-//       }
-//     }
      $tmpout = "";
      $tmpout = "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
      for ($x=0; $x<6; $x++)
@@ -149,7 +141,7 @@ function chordgenerator($iChord)
        $tmpout .= "&nbsp;".$output[0][$x];
      }
      $tmpout .= "<BR>";
-     $tmpout .= "╒═╤═╤═╤═╤═╤═╕<BR>";
+     $tmpout .= "╒═╤═╤═╤═╤═╤═╕<BR>";     
      for ($x=1; $x<=$max; $x++)
      {
        $tmpout .= "├";
@@ -166,7 +158,6 @@ function chordgenerator($iChord)
        }
        $tmpout .= "<BR>";
      }
-//     ┌─┬─┐├─┤┬┴┘└
      $tmpout .= "└─┴─┴─┴─┴─┴─┘<BR>";     
      mysqli_close($db);   
      return $tmpout;
