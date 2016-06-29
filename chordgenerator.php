@@ -11,7 +11,7 @@ function chordgenerator($iChord)
   }
   $sql = "SELECT * FROM chords WHERE name=\"".$iChord."\"";
   $result = mysqli_query($db,$sql);  
-  if (mysqli_fetch_array($result) != 0) // found chord
+  if (mysqli_num_rows($result) > 0) // found chord
   {
      $row = mysqli_fetch_assoc($result);
      $chord = $row['name'];
@@ -24,7 +24,6 @@ function chordgenerator($iChord)
      
      $max = max(intval($string6),intval($string5),intval($string4),intval($string3),intval($string2),intval($string1));     
      $tab = array($string6,$string5,$string4,$string3,$string2,$string1);
- 
      for ($x=0; $x<=$max; $x++)
      {
        for ($y=0; $y<6; $y++)
@@ -166,7 +165,10 @@ function chordgenerator($iChord)
   {
     mysqli_close($db);
     return;      
-  }
+  }  
+// }
+// else
+// { return; };
 }
 
 ?>
