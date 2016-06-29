@@ -124,7 +124,7 @@ function chordgenerator($iChord)
 //       }
 //     }
      $tmpout = "";
-     $tmpout = " E A D G B e<BR>";
+     $tmpout = "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
      for ($x=0; $x<$max; $x++)
      {
        $tmpout .= "+-+-+-+-+-+-+<BR>";

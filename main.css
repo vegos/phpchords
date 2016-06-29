@@ -1,0 +1,33 @@
+#fixedfonts
+{
+  font-size: 12pt;
+  font-family: monospace;
+}
+
+body
+{
+  font-size: 12pt;
+  font-family: monospace;
+}
+
+.hoverinfo {
+    position: relative;
+    display:inline;
+}
+.hoverinfo p {
+    display: none;
+    color: #ffffff;
+}
+.hoverinfo:hover p {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+img {
+   -webkit-filter: invert(1);
+   filter: invert(1);
+   }
+   
