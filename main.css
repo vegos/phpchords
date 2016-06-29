@@ -26,6 +26,13 @@ body
     left: 10px;
 }
 
+p 
+{
+  font-family: monospace;
+  font-size: 20px;
+  line-height: 22px;
+}
+
 img {
    -webkit-filter: invert(1);
    filter: invert(1);
