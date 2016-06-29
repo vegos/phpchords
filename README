@@ -1,0 +1,13 @@
+Guitar Chords (php & mysql)
+
+The idea is simple:
+
+You have a site with lyrics & chords.
+Hover on chord, to display how to play.
+
+The chords.txt is the file contained the chords detailed (chord name, frets, strings, etc).
+The add.php decodes the chords file and add it to a database.
+The decode.php decodes the song, finds the chords, make a lookup on database, and add the option to be displayed when hovering over the chord name with the mouse.
+For that, a css file is required.
+
+[Code for www.kithara.gr, Antonis Maglaras ©2016]
