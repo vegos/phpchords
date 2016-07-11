@@ -3,8 +3,8 @@
 function addtosql($vName,$vString6,$vString5,$vString4,$vString3,$vString2,$vString1)
 {
   $servername = "localhost";
-  $username = "myuser";
-  $password = "mypassword";
+  $username = "username";
+  $password = "password";
   $dbname = "chords";
   $conn = new mysqli($servername,$username,$password,$dbname);
   if ($conn->connect_error)

@@ -3,7 +3,7 @@
 function chordgenerator($iChord)
 { 
   $output = [[]];
-  $db = mysqli_connect("127.0.0.1","myuser","mypassword","chords");
+  $db = mysqli_connect("127.0.0.1","username","password","chords");
   if (!$db)
   {
     echo "Unable to connect to MySQL: ".mysqli_connect_error()."\n";
@@ -134,7 +134,7 @@ function chordgenerator($iChord)
      }
      $tmparr = array(0,0,0,0,0,0);
      $tmpout = "";
-     $tmpout = "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
+     $tmpout .= "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
      for ($x=0; $x<6; $x++)
      {
        $tmpout .= "&nbsp;".$output[0][$x];
@@ -157,7 +157,7 @@ function chordgenerator($iChord)
        }
        $tmpout .= "<BR>";
      }
-     $tmpout .= "└─┴─┴─┴─┴─┴─┘<BR>";     
+     $tmpout .= "└─┴─┴─┴─┴─┴─┘<BR>";
      mysqli_close($db);   
      return $tmpout;
   }
