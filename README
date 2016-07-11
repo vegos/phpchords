@@ -7,7 +7,7 @@ Hover on chord, to display how to play.
 
 The chords.txt is the file that contains the detailed chords (chord name, frets, strings, etc).
 The add.php decodes the chords file and add it to a database.
-The index.php decodes the song (song.txt), finds the chords, make a lookup on database, and add the option to be displayed when hovering over the chord name with the mouse.
+The index.php decodes the song (song.txt), finds the chords, make a lookup on database, and add the option to be displayed when hovering over the chord name with the mouse (by calling chordgenerator.php).
 For that, a css file (main.css) is required.
 
 [Code for www.kithara.gr, Antonis Maglaras ©2016]
