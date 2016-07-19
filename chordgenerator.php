@@ -135,11 +135,15 @@ function chordgenerator($iChord)
      $tmparr = array(0,0,0,0,0,0);
      $tmpout = "";
      $tmpout .= "&nbsp;E&nbsp;A&nbsp;D&nbsp;G&nbsp;B&nbsp;e<BR>";
-     for ($x=0; $x<6; $x++)
+     $checkarr= array("&nbsp;","&nbsp;","&nbsp;","&nbsp;","&nbsp;","&nbsp;");
+     if ($output[0] !== $checkarr)
      {
-       $tmpout .= "&nbsp;".$output[0][$x];
+        for ($x=0; $x<6; $x++)
+        {
+           $tmpout .= "&nbsp;".$output[0][$x];
+        }
+        $tmpout .= "<BR>";
      }
-     $tmpout .= "<BR>";
      $tmpout .= "╒═╤═╤═╤═╤═╤═╕<BR>";     
      for ($x=1; $x<=$max; $x++)
      {
@@ -158,6 +162,7 @@ function chordgenerator($iChord)
        $tmpout .= "<BR>";
      }
      $tmpout .= "└─┴─┴─┴─┴─┴─┘<BR>";
+     $tmpout .= "<center><b>".$iChord." Chord</b></center>";
      mysqli_close($db);   
      return $tmpout;
   }
