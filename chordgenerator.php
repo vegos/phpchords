@@ -1,5 +1,4 @@
 <?php
-
 function chordgenerator($iChord)
 { 
   $output = [[]];
@@ -11,7 +10,7 @@ function chordgenerator($iChord)
   }
   $sql = "SELECT * FROM chords WHERE name=\"".$iChord."\"";
   $result = mysqli_query($db,$sql);  
-  if (mysqli_num_rows($result) > 0) // found chord
+  if (mysqli_num_rows($result) > 0) // Yeap, we found the chord!
   {
      $row = mysqli_fetch_assoc($result);
      $chord = $row['name'];
@@ -171,9 +170,5 @@ function chordgenerator($iChord)
     mysqli_close($db);
     return;      
   }  
-// }
-// else
-// { return; };
 }
-
 ?>

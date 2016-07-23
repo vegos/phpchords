@@ -1,15 +1,15 @@
 <?php
 include("chordgenerator.php");
 
-echo "<!DOCTYPE html>\n";
-echo "<HTML>\n";
-echo "<HEAD>\n";
-echo "<script src=\"./jquery-1.12.4.min.js\"></script>\n";
+echo "<!DOCTYPE html>";
+echo "<HTML>";
+echo "<HEAD>";
+echo "<script src=\"./jquery-1.12.4.min.js\"></script>";
 ?>
 
 <script>
-function closePopup(ttt) { 
-  $('#'+ttt).hide(500);
+function closePopup(tmpPopup) {
+  $('#'+tmpPopup).hide(500);
 }
 
 $(document).ready(function() {
@@ -35,10 +35,8 @@ $(document).ready(function() {
 
 
 $(function() {
-
   var moveLeft = 0;
   var moveDown = 0;
-
   $('a.popper').hover(function (e) {
     var target = '#' + ($(this).attr('data-popbox'));
     $(target).show();
@@ -48,7 +46,7 @@ $(function() {
     var target = '#' + ($(this).attr('data-popbox'));
     if (!($("a.popper").hasClass("show"))) {
        $(target).delay(3000).hide(500);
-  }
+    }
   });
 
   $('a.popper').mousemove(function (e) {
@@ -78,12 +76,12 @@ $(function() {
 
 <?php
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"main.css\">";
-echo "</HEAD>\n";
-echo "<meta charset=\"utf-8\">\n";
-echo "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n";
+echo "</HEAD>";
+echo "<meta charset=\"utf-8\">";
+echo "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">";
 
 
-echo "<BODY>\n";
+echo "<BODY>";
 
 
 $file = fopen("song.txt","r");
@@ -124,7 +122,7 @@ while(! feof($file))
                   $output."".
                   "<div class=\"cancel\" onclick=\"closePopup('".$popper."');\">✕</div></div>".
                   "<a href=\"#\" class=\"popper\" data-popbox=\"".$popper."\">".
-                  $tmp."</a>\n";
+                  $tmp."</a>";
            }
            else
            {
@@ -134,7 +132,7 @@ while(! feof($file))
        }
        echo "&nbsp;";
      }     
-     echo "<BR>\n";
+     echo "<BR>";
   }
   else 				// contains lyrics, just display line
   {
@@ -144,6 +142,6 @@ while(! feof($file))
 
 fclose($file);
 
-echo "</BODY>\n";
-echo "</HTML>\n";
+echo "</BODY>";
+echo "</HTML>";
 ?> 

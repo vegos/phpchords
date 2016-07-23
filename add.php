@@ -45,18 +45,18 @@ if ($handle)
          echo $line;
          die();
        }
-       // ftiaxnoyme tis xordes
+       // Define Strings
        $string6=$newchord[0];
        $string5=$newchord[1];
        $string4=$newchord[2];
        $string3=$newchord[3];
        $string2=$newchord[4];
        $string1=str_replace(PHP_EOL,"",$newchord[5]);
-       // tsekaroyme an yparxoyn 1 h parapanw akornta
+       // Check if we have more than 1 chord names
        if (strpos($newline[0],"|")!=0)
-       { // mpolika akornta me to idio piasimo, spasimo se diafora
+       { // We have many chords with the same name, break them to individual chords
          foreach(explode("|",$newline[0]) as $tmpchord)
-         {  // eggrafh gia to kathe ena
+         {  // Add a record for every chord
            if ($tmpchord!=NULL)
            {
              addtosql($tmpchord,$string6,$string5,$string4,$string3,$string2,$string1);             
@@ -64,7 +64,7 @@ if ($handle)
          }
        }
        else
-       // yparxei mono 1 chord
+       // Only one chord found, add record
        {
          $chordname=$newline[0];
          addtosql($chordname,$string6,$string5,$string4,$string3,$string2,$string1);
@@ -80,5 +80,4 @@ else
 echo "Closing file...";
 fclose($handle);
 echo "Ok\n";
-
 ?>
